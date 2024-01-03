@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+#thumbs, #image {
+    width: 700px;
+    border: solid 1px 000;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    color: #000;
+    background: #eee;
+    padding: 5px;
+}
+#thumbs {
+    margin-top: 10px;
+}
+#thumbs img {
+    border: solid 1px #000;
+    margin: 5px;
+}
+#image{
+    height:400px;
+}
+.instructions{
+    font-style:italic;
+}
+
+    </style>
+    <script language="JavaScript" type="text/javascript">
+
+    // Begin comment for older browsers//
+
+	PrintButton1 = new Image
+	PrintButton2 = new Image
+	logo1 = new Image
+	logo2 = new Image
+
+if (document.images) {
+
+	PrintButton1.src = "images/print5.gif"
+	PrintButton2.src = "images/print6.gif"
+	logo1.src = "images/logo1.jpg"
+	logo2.src = "images/logo2.jpg"
+}
+
+    var imgArray = new Array(
+        'Image1Lg.png',
+        'Image2Lg.png',
+        'Image3Lg.png',
+        'Image4Lg.png'
+    );
+        var pictureNames = new Array(
+        'Cat and Dog',
+        'Cat',
+        'Bird and Dog',
+        'German Shepard'
+    );
+        var imgPath = "Images/Fullsize/";
+
+        function swapImage(imgID) {
+
+        var theImage = document.getElementById('theImage');
+        var textDiv = document.getElementById('bottomText');
+
+        var newImg;
+        var textTitle;
+
+        newImg = imgArray[imgID];
+        theImage.src = imgPath + newImg;
+
+        textTitle=picturenames[imgID];
+
+        textDiv.innerHTML = textTitle;
+
+        }
+        function preloadImages() {
+        for(var i = 0; i < imgArray.length; i++) {
+        var tmpImg = new Image;
+        tmpImg.src = imgPath + imgArray[i];
+        }
+        }
+        // End comment for older browsers --!>
+        </script>
+</head>
+
+<body onload="preloadImages()">
+<div>
+    <a href=""
+    onmouseover="document.getElementById('print').src='Images/Print2.png';"
+    onmouseout="document.getElementById('print').src='Images/Print1.png';">
+    <img src="Images/Print1.png" alt="Print Page" width="200" height="50" id="print"></a>
+    </div>
+    <div>
+        <a href=""
+        onmouseover="document.getElementById('logo').src='Images/2Logo.jpeg';"
+        onmouseout="document.getElementById('logo').src='Images/Logo.jpeg';"> 
+        <img src="Images/Logo.jpeg" alt="Logo" id="logo"></a> </div>
+
+        <p class="instructions">
+            <div id="thumbs">
+            <img src="Images/Thumbnails/Image1Sm.jpg" alt="CatAndDog" onmouseover="swapImage(0);" />
+            <img src="Images/Thumbnails/Image2Sm.jpg" alt="Cat" onmouseover="swapImage(1);" />
+            <img src="Images/Thumbnails/Image3Sm.jpg" alt="CatAndBirdg" onmouseover="swapImage(2);" />
+            <img src="Images/Thumbnails/Image4Sm.png" alt="GermanShepard" onmouseover="swapImage(3);" />
+            </div>
+            <div id="image">
+            <img id="theImage" src="Images/FullSize/Image1Lg.png" alt="CatAndDog" />
+            <h3 id="bottomText">Rent A Pet</h3>
+            </div>
+        <img src="Images/backimage.png" alt="Backround">
+
+</body>
+</html>
